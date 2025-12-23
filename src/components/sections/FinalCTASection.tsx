@@ -11,36 +11,28 @@ export function FinalCTASection() {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-soft">
           Ready to build your workforce?
         </p>
-        <h2 className="text-balance text-2xl font-semibold tracking-tight text-strong sm:text-3xl">
-          Unlock a borderless, on-demand digital workforce built for your next
-          decade — not just your next release.
+        <h2 className="text-balance text-2xl font-semibold tracking-tight text-strong sm:text-3xl md:text-4xl">
+          Build Faster. Scale Smarter. Execute Better.
         </h2>
         <p className="max-w-2xl text-sm text-muted sm:text-base">
-          Share your current challenges, technology stack, and timelines. We&apos;ll
-          return with a curated talent blueprint and deployment plan aligned to
-          your goals.
+          Let's build something extraordinary together.
         </p>
 
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="#signup"
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[0_0_45px_rgba(255,255,255,0.6)] transition hover:bg-zinc-200"
+            className="primary-cta group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold transition-all duration-200 hover:scale-105"
           >
-            Request talent blueprint
-            <span className="inline-block transition-transform group-hover:translate-x-0.5">
-              ↗
-            </span>
+            Start with WQT
           </Link>
           <Link
-            href="mailto:hello@wqt.global"
-            className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-zinc-300 hover:text-white"
+            href="#contact"
+            className="group inline-flex items-center gap-2 rounded-full border border-soft bg-transparent px-8 py-3.5 text-sm font-semibold text-strong transition-all duration-200 hover:border-strong hover:bg-panel"
           >
-            Or email us at hello@wqt.global
+            Talk to Us
           </Link>
         </div>
       </div>
     </section>
   );
 }
-
-

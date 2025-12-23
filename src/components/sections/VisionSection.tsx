@@ -6,23 +6,29 @@ export function VisionSection() {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(244,244,245,0.06),_transparent_60%)]" />
       <div className="relative mx-auto max-w-5xl px-4 text-center lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-soft">
-          Company Vision
-        </p>
-        <h2 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-strong sm:text-4xl md:text-5xl">
-          To become the world&apos;s most trusted{" "}
-          <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400 bg-clip-text text-transparent">
-            digital workforce ecosystem
+        <h2
+          className="ultra-bold-condensed text-balance text-4xl font-black tracking-tighter text-strong sm:text-5xl md:text-6xl lg:text-7xl"
+          style={{ fontFamily: 'var(--font-orbitron), sans-serif' }}
+        >
+          THE FUTURE OF WORK ISN'T HUMAN <span className="italic opacity-70">OR</span> AI.
+          <br />
+          IT'S{" "}
+          <span className="bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
+            HUMAN
+          </span>{" "}
+          <span className="italic opacity-70">AND</span>{" "}
+          <span className="bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
+            AI
           </span>
-          , where organizations of every size gain instant access to exceptional
-          talent and where skilled professionals thrive without geographic
-          barriers.
+          <br />
+          WORKING{" "}
+          <span className="bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
+            TOGETHER
+          </span>
+          .
         </h2>
-        <p className="mt-6 text-sm text-muted sm:text-base">
-          WQT exists to make world-class talent universally accessible. We
-          connect ambitious organizations with the people, capabilities, and
-          operating models required to build, scale, and sustain category-defining
-          digital products and platforms.
+        <p className="mt-8 text-xl font-medium italic text-muted sm:text-2xl">
+          WQT IS THE OPERATING SYSTEM FOR THAT FUTURE.
         </p>
       </div>
     </section>

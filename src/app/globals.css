@@ -195,3 +195,9 @@ body {
   background: white;
   color: black;
 }
+
+.ultra-bold-condensed {
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
