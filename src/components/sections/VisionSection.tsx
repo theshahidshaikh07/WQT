@@ -12,7 +12,9 @@ export function VisionSection() {
         >
           THE FUTURE OF WORK ISN'T HUMAN <span className="italic opacity-70">OR</span> AI.
           <br />
-          IT'S{" "}
+          IT'S
+          <br className="sm:hidden" />
+          {" "}
           <span className="bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
             HUMAN
           </span>{" "}
@@ -20,8 +22,10 @@ export function VisionSection() {
           <span className="bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
             AI
           </span>
-          <br />
-          WORKING{" "}
+          <br className="sm:hidden" />
+          {" "}WORKING
+          <br className="sm:hidden" />
+          {" "}
           <span className="bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
             TOGETHER
           </span>

@@ -24,7 +24,7 @@ export function Hero() {
             <h1 className="text-balance text-4xl font-semibold tracking-tight text-strong sm:text-5xl lg:text-6xl">
               Trusted Digital Talent.
               <span className="mt-2 block bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
-                On-Demand. Without Borders.
+                On Demand. Without Borders.
               </span>
             </h1>
             <p className="max-w-xl text-pretty text-sm text-muted sm:text-base">

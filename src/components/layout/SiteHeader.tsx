@@ -25,6 +25,7 @@ export function SiteHeader() {
   const { theme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const logoSrc =
     theme === "dark" ? "/WQT-DARK-THEME.png" : "/WQT-LIGHT-THEME.png";
 
@@ -164,26 +165,91 @@ export function SiteHeader() {
 
       {/* Mobile Menu */}
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${mobileMenuOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
           }`}
       >
         <nav className="border-t border-soft bg-panel/50 backdrop-blur-xl">
           <div className="mx-auto max-w-6xl space-y-1 px-4 py-4">
-            {navItems.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block rounded-lg px-4 py-3 text-sm font-medium text-muted transition-all duration-200 hover:bg-strong hover:text-strong hover:translate-x-1"
-                style={{
-                  animation: mobileMenuOpen
-                    ? `slideIn 0.3s ease-out ${index * 0.05}s both`
-                    : "none",
-                }}
+            {/* Home */}
+            <Link
+              href="#home"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-muted transition-all duration-200 hover:bg-strong hover:text-strong hover:translate-x-1"
+              style={{
+                animation: mobileMenuOpen ? `slideIn 0.3s ease-out 0s both` : "none",
+              }}
+            >
+              Home
+            </Link>
+
+            {/* Services with Dropdown */}
+            <div
+              style={{
+                animation: mobileMenuOpen ? `slideIn 0.3s ease-out 0.05s both` : "none",
+              }}
+            >
+              <button
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-medium text-muted transition-all duration-200 hover:bg-strong hover:text-strong"
               >
-                {item.label}
-              </Link>
-            ))}
+                <span>Services</span>
+                <svg
+                  className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""
+                    }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Services Dropdown */}
+              <div
+                className={`overflow-hidden transition-all duration-200 ${mobileServicesOpen ? "max-h-96" : "max-h-0"
+                  }`}
+              >
+                <div className="ml-4 space-y-1 border-l border-soft pl-4 pt-1">
+                  {services.map((service) => (
+                    <Link
+                      key={service.title}
+                      href={service.href}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileServicesOpen(false);
+                      }}
+                      className="block rounded-lg px-3 py-2 text-xs font-medium text-muted transition-all duration-150 hover:bg-panel hover:text-strong"
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* About Us */}
+            <Link
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-muted transition-all duration-200 hover:bg-strong hover:text-strong hover:translate-x-1"
+              style={{
+                animation: mobileMenuOpen ? `slideIn 0.3s ease-out 0.10s both` : "none",
+              }}
+            >
+              About Us
+            </Link>
+
+            {/* Careers */}
+            <Link
+              href="#careers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block rounded-lg px-4 py-3 text-sm font-medium text-muted transition-all duration-200 hover:bg-strong hover:text-strong hover:translate-x-1"
+              style={{
+                animation: mobileMenuOpen ? `slideIn 0.3s ease-out 0.15s both` : "none",
+              }}
+            >
+              Careers
+            </Link>
             <div className="flex flex-col gap-3 pt-4">
               <Link
                 href="#signup"
