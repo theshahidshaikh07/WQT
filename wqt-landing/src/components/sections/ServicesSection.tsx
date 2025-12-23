@@ -65,7 +65,7 @@ export function ServicesSection() {
               key={service.title}
               className="group relative overflow-hidden rounded-3xl border border-soft bg-gradient-to-br from-[color-mix(in_srgb,var(--section-subtle)_90%,transparent)] via-[color-mix(in_srgb,var(--section-subtle)_75%,transparent)] to-[color-mix(in_srgb,var(--section-subtle)_90%,transparent)] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.08)] backdrop-blur-2xl transition hover:border-[var(--accent-cyan)]/50 hover:shadow-[0_25px_80px_rgba(14,165,233,0.18)]"
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400 opacity-60 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-black opacity-60 group-hover:opacity-100 theme-dark:bg-white" />
               <h3 className="mt-2 text-sm font-semibold text-strong sm:text-base">
                 {service.title}
               </h3>

@@ -22,35 +22,34 @@ export function Hero() {
 
           <div className="space-y-4">
             <h1 className="text-balance text-4xl font-semibold tracking-tight text-strong sm:text-5xl lg:text-6xl">
-              World-Class Digital Talent.
-              <span className="mt-2 block bg-gradient-to-r from-[var(--accent-cyan)] via-sky-300 to-[var(--accent-violet)] bg-clip-text text-transparent">
+              Trusted Digital Talent.
+              <span className="mt-2 block bg-gradient-to-r from-[var(--accent-cyan)] via-violet-400 to-[var(--accent-violet)] bg-clip-text text-transparent">
                 On-Demand. Without Borders.
               </span>
             </h1>
             <p className="max-w-xl text-pretty text-sm text-muted sm:text-base">
-              Unlock a global network of elite engineers, designers, data and
-              cloud experts who integrate seamlessly into your teams — helping
-              you ship faster, scale smarter, and cut costs without sacrificing
-              quality.
+              A unified digital workforce designed for speed, quality, and scale.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[0_0_45px_rgba(255,255,255,0.55)] transition hover:bg-zinc-200"
+              className="primary-cta group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
-              Build your workforce
-              <span className="inline-block transition-transform group-hover:translate-x-0.5">
-                ↗
+              <span className="relative z-10">Build your workforce</span>
+              <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-[-1px]">
+                →
               </span>
+              {/* Shine effect */}
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             </Link>
             <Link
               href="#how-it-works"
-              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-zinc-300 hover:text-white"
+              className="group relative inline-flex items-center gap-3 rounded-full border border-soft px-6 py-3 text-xs font-medium uppercase tracking-[0.22em] text-strong transition-all duration-200 hover:border-strong hover:bg-panel"
             >
-              How it works
-              <span className="h-px w-7 bg-gradient-to-r from-zinc-500 to-white" />
+              <span>How it works</span>
+              <span className="h-px w-6 bg-current transition-all duration-300 group-hover:w-10" />
             </Link>
           </div>
 
@@ -58,7 +57,7 @@ export function Hero() {
 
         {/* Glassmorphism panel */}
         <div className="relative mt-6 flex-1 md:mt-0">
-          <div className="glass-panel mx-auto max-w-md p-5 shadow-[0_0_100px_rgba(15,23,42,0.4)] backdrop-blur-2xl md:max-w-none">
+          <div className="glass-panel mx-auto max-w-md p-5 backdrop-blur-2xl md:max-w-none">
             <div className="flex items-center justify-between gap-4 border-b border-soft pb-4">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-soft">
@@ -68,7 +67,7 @@ export function Hero() {
                   Real-time availability across skills & regions.
                 </p>
               </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-soft bg-panel text-strong shadow-[0_10px_25px_rgba(0,0,0,0.12)]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-soft bg-panel text-strong">
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 24 24"

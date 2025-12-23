@@ -12,8 +12,8 @@ export default function Home() {
     <div className="min-h-screen bg-page text-strong">
       <SiteHeader />
       <Hero />
-      <HowItWorksSection />
       <ServicesSection />
+      <HowItWorksSection />
       <WhyChooseUsSection />
       <VisionSection />
       <FinalCTASection />

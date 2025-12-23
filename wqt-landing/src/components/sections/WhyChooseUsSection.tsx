@@ -31,7 +31,6 @@ export function WhyChooseUsSection() {
       id="why-us"
       className="relative border-b border-soft bg-strong py-16 sm:py-20"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(24,24,27,0.8),_transparent_65%),radial-gradient(circle_at_bottom,_rgba(39,39,42,0.9),_transparent_65%)]" />
       <div className="relative mx-auto max-w-6xl px-4 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl space-y-4">

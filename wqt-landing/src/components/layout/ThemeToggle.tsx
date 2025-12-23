@@ -11,27 +11,36 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      className="group relative flex h-8 w-14 items-center rounded-full border border-soft bg-subtle px-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-soft shadow-sm transition hover:border-white/40 hover:bg-strong"
+      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-soft bg-subtle transition hover:border-white/40 hover:bg-strong"
     >
-      <span
-        className={`absolute inset-y-1 w-6 rounded-full bg-white shadow-[0_0_18px_rgba(0,0,0,0.45)] transition-transform duration-200 ${
-          isDark ? "translate-x-6" : "translate-x-0"
-        }`}
-      />
-      <span
-        className={`relative flex-1 text-center transition-colors ${
-          !isDark ? "text-strong" : "text-soft"
-        }`}
+      {/* Sun Icon - Light Mode */}
+      <svg
+        className={`absolute h-5 w-5 transition-all duration-300 ${!isDark
+            ? "rotate-0 scale-100 opacity-100"
+            : "rotate-90 scale-0 opacity-0"
+          }`}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
       >
-        LT
-      </span>
-      <span
-        className={`relative flex-1 text-center transition-colors ${
-          isDark ? "text-strong" : "text-soft"
-        }`}
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+      </svg>
+
+      {/* Moon Icon - Dark Mode */}
+      <svg
+        className={`absolute h-5 w-5 transition-all duration-300 ${isDark
+            ? "rotate-0 scale-100 opacity-100"
+            : "-rotate-90 scale-0 opacity-0"
+          }`}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
       >
-        DK
-      </span>
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
     </button>
   );
 }
