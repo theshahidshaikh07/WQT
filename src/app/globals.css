@@ -2,39 +2,80 @@
 
 :root {
   /* Light theme */
-  --page-bg: #f8fafc;
+  --page-bg: #ffffff;
   --section-strong: #ffffff;
-  --section-subtle: #f4f6fb;
-  --panel-glass: rgba(255, 255, 255, 0.7);
-  --panel-glass-border: rgba(0, 0, 0, 0.08);
+  --section-subtle: #fbfbfe;
+  --panel-glass: rgba(255, 255, 255, 0.8);
+  --panel-glass-border: rgba(0, 0, 0, 0.05);
   --panel-foreground: #0b0b0f;
   --text-strong: #0b0b0f;
-  --text-muted: #1f2937;
-  --text-soft: #4b5563;
-  --border-soft: rgba(0, 0, 0, 0.1);
-  --accent-cyan: #0ea5e9;
-  --accent-violet: #7c3aed;
-  --glow-cyan: rgba(14, 165, 233, 0.2);
-  --glow-violet: rgba(124, 58, 237, 0.16);
-  --hero-bg: radial-gradient(circle at 20% 20%, #e8f3ff 0, #ffffff 45%, #e8ecf5 100%);
+  --text-muted: #374151;
+  --text-soft: #6b7280;
+  --border-soft: rgba(0, 0, 0, 0.08);
+
+  /* New Oasis Theme Colors */
+  --accent-cyan: #7c3aed;
+  /* Violet */
+  --accent-violet: #3b82f6;
+  /* Blue (replacing Pink) */
+
+  --glow-cyan: rgba(124, 58, 237, 0.15);
+  /* Violet Glow */
+  --glow-violet: rgba(59, 130, 246, 0.15);
+  /* Blue Glow */
+
+  /* Ethereal Oasis Gradient - Super Soft Blend (Violet + Blue) */
+  --hero-bg:
+    radial-gradient(120% 120% at 50% 0%, rgba(237, 233, 254, 0.5) 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(100% 100% at 90% 20%, rgba(219, 234, 254, 0.5) 0%, rgba(255, 255, 255, 0) 60%),
+    /* Soft Blue */
+    radial-gradient(100% 100% at 10% 20%, rgba(220, 210, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    #ffffff;
+
+  --badge-bg: #ffffff;
+  --badge-text: #1f2937;
+  --badge-border: rgba(0, 0, 0, 0.1);
+  /* Why Choose Us Vars */
+  --why-front-bg: #ffffff;
+  --why-back-bg-initial: #ffffff;
+  --why-back-bg-reveal: #000000;
+  --why-back-text: #ffffff;
 }
 
 .theme-dark {
-  --page-bg: #020617;
-  --section-strong: #020617;
-  --section-subtle: #0b1224;
-  --panel-glass: rgba(255, 255, 255, 0.08);
+  --page-bg: #050505;
+  --section-strong: rgba(255, 255, 255, 0.03);
+  /* Glassy Card BG */
+  --why-front-bg: rgba(255, 255, 255, 0.03);
+  --why-back-bg-initial: transparent;
+  --why-back-bg-reveal: #ffffff;
+  --why-back-text: #000000;
+
+  --section-subtle: rgba(255, 255, 255, 0.05);
+  --panel-glass: rgba(10, 10, 10, 0.6);
   --panel-glass-border: rgba(255, 255, 255, 0.1);
   --panel-foreground: #e5e7eb;
-  --text-strong: #f8fafc;
-  --text-muted: #e2e8f0;
-  --text-soft: #cbd5e1;
-  --border-soft: rgba(255, 255, 255, 0.12);
-  --accent-cyan: #22d3ee;
-  --accent-violet: #a855f7;
-  --glow-cyan: rgba(34, 211, 238, 0.24);
-  --glow-violet: rgba(168, 85, 247, 0.24);
-  --hero-bg: linear-gradient(to bottom, #01030b 0%, #020617 50%, #01030b 100%);
+  --text-strong: #f9fafb;
+  --text-muted: #d1d5db;
+  --text-soft: #9ca3af;
+  --border-soft: rgba(255, 255, 255, 0.1);
+
+  --accent-cyan: #a78bfa;
+  /* Soft Violet */
+  --accent-violet: #60a5fa;
+  /* Soft Blue */
+
+  --glow-cyan: rgba(167, 139, 250, 0.2);
+  --glow-violet: rgba(96, 165, 250, 0.2);
+
+  --hero-bg:
+    radial-gradient(circle at 50% 0%, rgba(22, 12, 40, 0.8) 0%, rgba(5, 5, 5, 0) 70%),
+    radial-gradient(circle at 90% 20%, rgba(10, 25, 40, 0.6) 0%, rgba(5, 5, 5, 0) 60%),
+    #050505;
+
+  --badge-bg: rgba(10, 10, 10, 0.6);
+  --badge-text: #ffffff;
+  --badge-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -93,11 +134,9 @@ body {
 
 .glass-panel {
   border-radius: 1.75rem;
-  background: linear-gradient(135deg, var(--panel-glass), rgba(255, 255, 255, 0.05));
+  background: var(--panel-glass);
   color: var(--panel-foreground);
-  box-shadow:
-    0 8px 32px rgba(14, 165, 233, 0.25),
-    0 16px 64px rgba(124, 58, 237, 0.20);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--panel-glass-border);
   backdrop-filter: blur(26px);
 }
@@ -110,7 +149,7 @@ body {
       transparent 1px),
     linear-gradient(to bottom, rgba(39, 39, 42, 0.25) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 0.18;
+  opacity: 0.06;
   mask-image: radial-gradient(circle at top, black 0, transparent 65%);
 }
 
@@ -186,6 +225,60 @@ body {
   }
 }
 
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: calc(100% - 300px);
+  }
+}
+
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(calc(100vw + 100%));
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .primary-cta {
   background: black;
   color: white;
@@ -200,4 +293,345 @@ body {
   font-family: var(--font-orbitron), sans-serif;
   font-weight: 900;
   letter-spacing: -0.02em;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+  background-size: 1000px 100%;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-marquee {
+  animation: marquee 8s ease-in-out infinite alternate;
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 15s linear infinite;
+}
+
+/* Lenis Recommended Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Global Reveal Animation System */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-from-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  filter: blur(10px);
+  transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.5s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-from-right {
+  opacity: 0;
+  transform: translateX(100px);
+  filter: blur(10px);
+  transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.5s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-zoom {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible,
+.reveal-from-left.is-visible,
+.reveal-from-right.is-visible,
+.reveal-zoom.is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+  filter: blur(0);
+}
+
+/* Advanced Glassmorphism for Matrix Card */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+.theme-dark .glass-panel {
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.5),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.flash-icon {
+  color: #10b981;
+  /* Emerald Green */
+}
+
+.theme-dark .flash-icon {
+  color: #10b981 !important;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Secondary CTA Fix */
+.cta-secondary {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  /* Darker border */
+  color: #1f2937;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.theme-dark .cta-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Service Section Component Classes (Designer Mode) */
+.pill-badge {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #1f2937;
+}
+
+.theme-dark .pill-badge {
+  background: rgba(255, 255, 255, 0.05);
+  /* Glassy */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.pill-tag {
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #000000;
+}
+
+.theme-dark .pill-tag {
+  background: rgba(255, 255, 255, 0.05);
+  /* Subtler Glass */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+}
+
+.icon-box {
+  background: #f3f4f6;
+  /* slate-100 */
+  color: var(--text-strong);
+}
+
+.theme-dark .icon-box {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.btn-card {
+  background: #000000;
+  color: #ffffff;
+}
+
+.theme-dark .btn-card {
+  background: #ffffff;
+  color: #000000;
+}
+
+.theme-dark .btn-card:hover {
+  background: #e5e7eb;
+}
+
+.card-top-border {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+  /* Gray-300 */
+}
+
+.theme-dark .card-top-border {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  /* Glass Shine */
+}
+
+.theme-dark .cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+/* Animation Fixes */
+.hero-anim-ring-outer {
+  border-color: #9ca3af;
+}
+
+/* gray-400 */
+.theme-dark .hero-anim-ring-outer {
+  border-color: #6b7280;
+}
+
+/* gray-500 */
+
+.hero-anim-ring-inner {
+  border-color: #4b5563;
+}
+
+/* gray-600 */
+.theme-dark .hero-anim-ring-inner {
+  border-color: #d1d5db;
+}
+
+/* gray-300 */
+
+.hero-anim-core {
+  background-color: #000000;
+}
+
+.theme-dark .hero-anim-core {
+  background-color: #ffffff;
+}
+
+.hero-anim-core-dot {
+  background-color: #ffffff;
+}
+
+.theme-dark .hero-anim-core-dot {
+  background-color: #000000;
+}
+
+.hero-anim-particle {
+  background-color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.theme-dark .hero-anim-particle {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* How It Works Section Classes */
+.how-step-card {
+  background: #ffffff;
+}
+
+.theme-dark .how-step-card {
+  background: rgba(255, 255, 255, 0.03);
+  /* Glassy */
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.step-number-box {
+  background: #000000;
+  color: #ffffff;
+}
+
+.theme-dark .step-number-box {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: none;
+}
+
+.note-box {
+  background: #f9fafb;
+  /* gray-50 */
+  border: 1px solid #e5e7eb;
+}
+
+.theme-dark .note-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Why Choose Us Section Classes */
+.shutter-card {
+  border: 1px solid var(--border-soft);
+}
+
+.why-card-front {
+  background: var(--why-front-bg) !important;
+}
+
+.why-card-back {
+  --back-bg: var(--why-back-bg-initial);
+  --back-color: var(--why-back-text);
+  background: var(--back-bg) !important;
+  color: var(--back-color) !important;
+  transition: all 0.5s ease-in-out !important;
+}
+
+/* Force state change via parent hover/active */
+.shutter-card:hover .why-card-back,
+.shutter-card.shutter-active .why-card-back {
+  --back-bg: var(--why-back-bg-reveal);
+}
+
+.why-card-back p {
+  color: inherit !important;
+}
+
+.tease-bar {
+  background: #e5e7eb;
+}
+
+.theme-dark .tease-bar {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Header Dropdown Menu */
+.dropdown-menu {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.theme-dark .dropdown-menu {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.dropdown-menu-item {
+  color: #374151;
+}
+
+.theme-dark .dropdown-menu-item {
+  color: #d1d5db;
+}
+
+.dropdown-menu-item:hover {
+  background: #f3f4f6;
+  color: #0b0b0f;
+}
+
+.theme-dark .dropdown-menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }

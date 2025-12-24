@@ -6,7 +6,7 @@ export function FinalCTASection() {
       id="contact"
       className="relative border-b border-soft bg-strong py-16 sm:py-20"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.16),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(59,130,246,0.18),_transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.16),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(59,130,246,0.18),_transparent_55%)]" />
       <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 text-center lg:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-soft">
           Ready to build your workforce?

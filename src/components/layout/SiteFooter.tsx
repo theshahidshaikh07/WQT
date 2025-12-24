@@ -69,22 +69,22 @@ export function SiteFooter() {
 
   return (
     <footer className="relative bg-black text-white">
-      {/* Curved Top Edge */}
-      <div className="absolute inset-x-0 top-0 h-16 -translate-y-full overflow-hidden">
+      {/* Curved Top Edge - Responsive */}
+      <div className="absolute inset-x-0 top-0 h-12 sm:h-16 md:h-20 -translate-y-[calc(100%-1px)] overflow-hidden">
         <svg
-          className="absolute bottom-0 w-full"
-          viewBox="0 0 1440 48"
+          className="absolute bottom-0 w-full h-full"
+          viewBox="0 0 1440 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
         >
           <path
-            d="M0 48h1440V0C1440 0 1080 48 720 48S0 0 0 0v48z"
-            fill="currentColor"
-            className="text-black"
+            d="M0 100L0 0C0 0 360 100 720 100C1080 100 1440 0 1440 0L1440 100L0 100Z"
+            fill="black"
           />
         </svg>
       </div>
+
 
       <div className="mx-auto max-w-6xl px-4 py-16 lg:px-8">
         {/* Main Footer Content */}

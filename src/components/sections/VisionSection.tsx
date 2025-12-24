@@ -4,7 +4,6 @@ export function VisionSection() {
       id="about"
       className="relative border-y border-soft hero-surface py-20 sm:py-24"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(244,244,245,0.06),_transparent_60%)]" />
       <div className="relative mx-auto max-w-5xl px-4 text-center lg:px-8">
         <h2
           className="ultra-bold-condensed text-balance text-4xl font-black tracking-tighter text-strong sm:text-5xl md:text-6xl lg:text-7xl"

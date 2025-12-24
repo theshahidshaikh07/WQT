@@ -11,13 +11,13 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-soft bg-subtle transition hover:border-white/40 hover:bg-strong"
+      className="group relative flex h-9 w-9 items-center justify-center rounded-full text-white transition-all duration-200 hover:bg-gray-800 theme-dark:text-black theme-dark:hover:bg-gray-200"
     >
       {/* Sun Icon - Light Mode */}
       <svg
         className={`absolute h-5 w-5 transition-all duration-300 ${!isDark
-            ? "rotate-0 scale-100 opacity-100"
-            : "rotate-90 scale-0 opacity-0"
+          ? "rotate-0 scale-100 opacity-100"
+          : "rotate-90 scale-0 opacity-0"
           }`}
         fill="none"
         viewBox="0 0 24 24"
@@ -31,8 +31,8 @@ export function ThemeToggle() {
       {/* Moon Icon - Dark Mode */}
       <svg
         className={`absolute h-5 w-5 transition-all duration-300 ${isDark
-            ? "rotate-0 scale-100 opacity-100"
-            : "-rotate-90 scale-0 opacity-0"
+          ? "rotate-0 scale-100 opacity-100"
+          : "-rotate-90 scale-0 opacity-0"
           }`}
         fill="none"
         viewBox="0 0 24 24"
