@@ -34,7 +34,7 @@ export function LeadershipSection() {
                             <div className="md:w-64 lg:w-72 flex-shrink-0">
                                 <div className="relative h-80 md:h-full overflow-hidden">
                                     <img
-                                        src="/pooja.jpeg"
+                                        src="/Pooja.jpeg"
                                         alt="Pooja Bhokare - Founder & CEO"
                                         className="w-full h-full object-cover object-center"
                                     />
