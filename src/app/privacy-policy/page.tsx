@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
                     </h1>
 
                     <p className="text-lg text-muted">
-                        Last Updated: December 25, 2024
+                        Effective Date: December 25, 2025
                     </p>
                 </div>
             </section>
@@ -222,8 +222,7 @@ export default function PrivacyPolicyPage() {
                                         If you have questions about this Privacy Policy or our data practices, please contact us at:
                                     </p>
                                     <div className="mt-4 space-y-2">
-                                        <p className="font-semibold text-strong">📧 Email: privacy@wqt.com</p>
-                                        <p className="font-semibold text-strong">📧 General Inquiries: info@wqt.co.in</p>
+                                        <p className="font-semibold text-strong">📧 Email: info@wqt.co.in</p>
                                         <p className="font-semibold text-strong">🌐 Website: www.wqt.com</p>
                                         <p className="font-semibold text-strong">📍 Address: [Your Company Address]</p>
                                     </div>

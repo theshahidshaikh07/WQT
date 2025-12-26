@@ -24,7 +24,7 @@ export default function CookiePolicyPage() {
                     </h1>
 
                     <p className="text-lg text-muted">
-                        Last Updated: December 25, 2024
+                        Effective Date: December 25, 2025
                     </p>
                 </div>
             </section>
