@@ -13,13 +13,15 @@ export function Hero() {
 
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center md:py-24 lg:px-8">
         {/* Scrolling Badge - Desktop only (absolute positioned with animation) */}
-        <div className="hidden md:block absolute top-8 left-4 right-4 lg:left-8 lg:right-8 pointer-events-none z-10 reveal-on-scroll">
-          <p
-            className="animate-marquee relative inline-flex items-center gap-2 rounded-full border border-[var(--badge-border)] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.25em] backdrop-blur-sm shadow-sm bg-[var(--badge-bg)] text-[var(--badge-text)]"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
-            Digital Workforce, Reimagined
-          </p>
+        <div className="hidden md:block absolute top-8 left-0 right-0 pointer-events-none z-10 reveal-on-scroll">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8 overflow-hidden">
+            <p
+              className="animate-marquee inline-flex items-center gap-2 rounded-full border border-[var(--badge-border)] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.25em] backdrop-blur-sm shadow-sm bg-[var(--badge-bg)] text-[var(--badge-text)] whitespace-nowrap"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
+              Digital Workforce, Reimagined
+            </p>
+          </div>
         </div>
 
         <div className="max-w-xl space-y-8 flex flex-col items-center md:items-start text-center md:text-left reveal-from-left">

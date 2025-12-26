@@ -13,12 +13,12 @@ const navItems = [
 ];
 
 const services = [
-  { title: "Software & Cloud Engineering", href: "#services" },
-  { title: "Data, AI & Automation", href: "#services" },
-  { title: "Cybersecurity & Infrastructure", href: "#services" },
-  { title: "Product Design & Development", href: "#services" },
-  { title: "DevOps, SRE & Platform Engineering", href: "#services" },
-  { title: "Project Management & Tech Consulting", href: "#services" },
+  { title: "Software & Cloud Engineering", href: "/services/software-cloud-engineering" },
+  { title: "Data, AI & Automation", href: "/services/data-ai-automation" },
+  { title: "Cybersecurity & Infrastructure", href: "/services/cybersecurity-infrastructure" },
+  { title: "Product Design & Development", href: "/services/product-design-development" },
+  { title: "DevOps, SRE & Platform Engineering", href: "/services/devops-sre-platform" },
+  { title: "Project Management & Tech Consulting", href: "/services/project-management-consulting" },
 ];
 
 export function SiteHeader() {
@@ -35,7 +35,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8 md:py-5">
         {/* Logo */}
         <Link
-          href="#home"
+          href="/"
           className="flex items-center gap-3 transition-transform duration-200 hover:scale-105"
         >
           <div className="relative h-7 w-24 md:h-8 md:w-28">
@@ -54,7 +54,7 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-2 text-sm text-white lg:flex theme-dark:text-white">
           {/* Home */}
           <Link
-            href="#home"
+            href="/"
             className="relative px-4 py-2 rounded-full transition-all duration-200 hover:bg-gray-800 hover:text-white theme-dark:hover:bg-white/10 theme-dark:hover:text-white"
           >
             Home
@@ -84,33 +84,35 @@ export function SiteHeader() {
 
             {/* Dropdown Menu */}
             <div
-              className={`absolute left-0 top-full mt-2 w-72 overflow-hidden rounded-2xl shadow-2xl transition-all duration-200 dropdown-menu ${servicesOpen
+              className={`absolute left-0 top-full pt-2 transition-all duration-200 ${servicesOpen
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
             >
-              <div className="p-2">
-                {services.map((service, index) => (
-                  <Link
-                    key={service.title}
-                    href={service.href}
-                    className="block rounded-lg px-4 py-2.5 text-xs font-medium transition-all duration-150 dropdown-menu-item"
-                    style={{
-                      animation: servicesOpen
-                        ? `slideIn 0.2s ease-out ${index * 0.03}s both`
-                        : "none",
-                    }}
-                  >
-                    {service.title}
-                  </Link>
-                ))}
+              <div className="w-72 overflow-hidden rounded-2xl shadow-2xl dropdown-menu">
+                <div className="p-2">
+                  {services.map((service, index) => (
+                    <Link
+                      key={service.title}
+                      href={service.href}
+                      className="block rounded-lg px-4 py-2.5 text-xs font-medium transition-all duration-150 dropdown-menu-item"
+                      style={{
+                        animation: servicesOpen
+                          ? `slideIn 0.2s ease-out ${index * 0.03}s both`
+                          : "none",
+                      }}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Other Nav Items */}
           <Link
-            href="#about"
+            href="/about"
             className="relative px-4 py-2 rounded-full transition-all duration-200 hover:bg-gray-800 hover:text-white theme-dark:hover:bg-white/10 theme-dark:hover:text-white"
           >
             About Us
@@ -173,7 +175,7 @@ export function SiteHeader() {
           <div className="mx-auto max-w-6xl space-y-1 px-4 py-4">
             {/* Home */}
             <Link
-              href="#home"
+              href="/"
               onClick={() => setMobileMenuOpen(false)}
               className="block rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-gray-900 hover:translate-x-1 theme-dark:hover:bg-gray-100"
               style={{
@@ -230,7 +232,7 @@ export function SiteHeader() {
 
             {/* About Us */}
             <Link
-              href="#about"
+              href="/about"
               onClick={() => setMobileMenuOpen(false)}
               className="block rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-gray-900 hover:translate-x-1 theme-dark:hover:bg-gray-100"
               style={{

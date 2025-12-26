@@ -3,25 +3,24 @@ import Image from "next/image";
 
 const footerLinks = {
   company: [
-    { label: "About Us", href: "#about" },
+    { label: "About Us", href: "/about" },
     { label: "Our Services", href: "#services" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "Careers", href: "#careers" },
     { label: "Contact", href: "#contact" },
   ],
   services: [
-    { label: "Software & Cloud", href: "#services" },
-    { label: "Data & AI", href: "#services" },
-    { label: "Cybersecurity", href: "#services" },
-    { label: "Product Design", href: "#services" },
-    { label: "DevOps & SRE", href: "#services" },
+    { label: "Software & Cloud", href: "/services/software-cloud-engineering" },
+    { label: "Data & AI", href: "/services/data-ai-automation" },
+    { label: "Cybersecurity", href: "/services/cybersecurity-infrastructure" },
+    { label: "Product Design", href: "/services/product-design-development" },
+    { label: "DevOps & SRE", href: "/services/devops-sre-platform" },
+    { label: "PM & Consulting", href: "/services/project-management-consulting" },
   ],
   resources: [
     { label: "Case Studies", href: "#" },
     { label: "Blog", href: "#" },
     { label: "Documentation", href: "#" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
   ],
 };
 
@@ -103,6 +102,19 @@ export function SiteFooter() {
               World's Quality Talent. Building the future of digital workforce with elite human talent and AI-powered execution.
             </p>
 
+            {/* Contact Email */}
+            <div className="mt-4">
+              <a
+                href="mailto:info@wqt.co.in"
+                className="inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors duration-200 hover:text-white"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                info@wqt.co.in
+              </a>
+            </div>
+
             {/* Social Links */}
             <div className="mt-6 flex gap-4">
               {socialLinks.map((social) => (
@@ -183,13 +195,13 @@ export function SiteFooter() {
               © {year} WQT – World's Quality Talent. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-6 text-sm text-zinc-400">
-              <Link href="#" className="transition-colors hover:text-white">
+              <Link href="/privacy-policy" className="transition-colors hover:text-white">
                 Privacy Policy
               </Link>
-              <Link href="#" className="transition-colors hover:text-white">
+              <Link href="/terms-of-service" className="transition-colors hover:text-white">
                 Terms of Service
               </Link>
-              <Link href="#" className="transition-colors hover:text-white">
+              <Link href="/cookie-policy" className="transition-colors hover:text-white">
                 Cookie Policy
               </Link>
             </div>
