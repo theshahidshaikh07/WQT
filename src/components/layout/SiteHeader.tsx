@@ -9,7 +9,7 @@ import { useTheme } from "./ThemeProvider";
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "About Us", href: "#about" },
-  { label: "Careers", href: "#careers" },
+  { label: "Careers", href: "/careers" },
 ];
 
 const services = [
@@ -67,7 +67,7 @@ export function SiteHeader() {
             onMouseLeave={() => setServicesOpen(false)}
           >
             <Link
-              href="#services"
+              href="/#services"
               className="relative flex items-center gap-1 px-4 py-2 rounded-full transition-all duration-200 hover:bg-gray-800 hover:text-white theme-dark:hover:bg-white/10 theme-dark:hover:text-white"
             >
               Services
@@ -118,7 +118,7 @@ export function SiteHeader() {
             About Us
           </Link>
           <Link
-            href="#careers"
+            href="/careers"
             className="relative px-4 py-2 rounded-full transition-all duration-200 hover:bg-gray-800 hover:text-white theme-dark:hover:bg-white/10 theme-dark:hover:text-white"
           >
             Careers
@@ -135,7 +135,7 @@ export function SiteHeader() {
             Signup
           </Link>
           <Link
-            href="#contact"
+            href="/contact"
             className="rounded-full bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-gray-100 theme-dark:bg-white theme-dark:text-black theme-dark:hover:bg-gray-100"
           >
             Get in touch
@@ -244,7 +244,7 @@ export function SiteHeader() {
 
             {/* Careers */}
             <Link
-              href="#careers"
+              href="/careers"
               onClick={() => setMobileMenuOpen(false)}
               className="block rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-gray-900 hover:translate-x-1 theme-dark:hover:bg-gray-100"
               style={{
@@ -262,7 +262,7 @@ export function SiteHeader() {
                 Signup
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-full bg-white px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-black transition-all duration-200 hover:bg-gray-100 theme-dark:bg-black theme-dark:text-white theme-dark:hover:bg-gray-900"
               >

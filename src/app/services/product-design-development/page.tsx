@@ -237,16 +237,16 @@ export default function ProductDesignDevelopmentPage() {
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
                         <Link
-                            href="#contact"
+                            href="/contact"
                             className="primary-cta inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold transition-all duration-200 hover:scale-105"
                         >
-                            Get Started
+                            Contact Us
                         </Link>
                         <Link
-                            href="/about"
+                            href="mailto:info@wqt.co.in"
                             className="inline-flex items-center gap-2 rounded-full border border-soft bg-transparent px-8 py-3.5 text-sm font-semibold text-strong transition-all duration-200 hover:border-strong hover:bg-panel"
                         >
-                            Learn More About WQT
+                            Email Us
                         </Link>
                     </div>
                 </div>

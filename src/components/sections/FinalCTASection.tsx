@@ -20,16 +20,16 @@ export function FinalCTASection() {
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="#signup"
+            href="/contact"
             className="primary-cta group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold transition-all duration-200 hover:scale-105"
           >
-            Start with WQT
+            Contact Us
           </Link>
           <Link
-            href="#contact"
+            href="mailto:info@wqt.co.in"
             className="group inline-flex items-center gap-2 rounded-full border border-soft bg-transparent px-8 py-3.5 text-sm font-semibold text-strong transition-all duration-200 hover:border-strong hover:bg-panel"
           >
-            Talk to Us
+            Email Us
           </Link>
         </div>
       </div>

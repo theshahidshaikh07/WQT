@@ -4,10 +4,10 @@ import Image from "next/image";
 const footerLinks = {
   company: [
     { label: "About Us", href: "/about" },
-    { label: "Our Services", href: "#services" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Careers", href: "#careers" },
-    { label: "Contact", href: "#contact" },
+    { label: "Our Services", href: "/#services" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
   ],
   services: [
     { label: "Software & Cloud", href: "/services/software-cloud-engineering" },
