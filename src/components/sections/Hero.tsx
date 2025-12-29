@@ -50,7 +50,7 @@ export function Hero() {
 
           <div className="relative flex flex-wrap items-center justify-center md:justify-start gap-4">
             <Link
-              href="/contact"
+              href="/contact#contact-form"
               className="primary-cta group relative inline-flex w-72 justify-center items-center overflow-hidden rounded-full px-4 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <span className="relative z-10">Build your workforce</span>

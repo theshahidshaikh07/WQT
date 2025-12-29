@@ -100,7 +100,7 @@ export default function ContactPage() {
                 </section>
 
                 {/* Contact Form & Info Section */}
-                <section className="relative border-b border-soft bg-hero py-12">
+                <section id="contact-form" className="relative border-b border-soft bg-hero py-12 scroll-mt-24">
                     <div className="relative mx-auto max-w-4xl px-4 lg:px-8">
                         {/* Contact Form - Centered */}
                         <div className="reveal-from-bottom mb-10">
