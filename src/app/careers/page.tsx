@@ -47,24 +47,17 @@ const openPositions = [
     {
         department: "Engineering",
         roles: [
-            { title: "Senior Full Stack Engineer", location: "Remote • India", type: "Full-time" },
-            { title: "Staff DevOps Engineer", location: "Remote • Global", type: "Full-time" },
-            { title: "Lead Frontend Architect", location: "Remote • Europe", type: "Contract" },
+            {
+                title: "Software Development Engineer (SDE) Intern – MCP Server & LLM AI",
+                location: "Pune, India",
+                type: "Remote",
+                href: "/careers/sde-intern-mcp-ai"
+            },
         ]
     },
     {
         department: "Product & Design",
-        roles: [
-            { title: "Senior Product Manager", location: "Remote • US East", type: "Full-time" },
-            { title: "Product Designer (UI/UX)", location: "Remote • India", type: "Full-time" },
-        ]
-    },
-    {
-        department: "Client Success",
-        roles: [
-            { title: "Technical Account Manager", location: "London, UK", type: "Hybrid" },
-            { title: "Sales Development Rep", location: "Pune, India", type: "On-site" },
-        ]
+        roles: []
     }
 ];
 
@@ -115,44 +108,38 @@ export default function CareersPage() {
                                     <div className="flex items-center gap-4 mb-6">
                                         <h3 className="text-xl font-bold text-strong">{dept.department}</h3>
                                         <div className="h-px flex-1 bg-gradient-to-r from-gray-200 to-transparent dark:from-gray-800" />
-                                        <span className="text-sm font-medium text-violet-500">{dept.roles.length} roles</span>
+                                        <span className={`text-sm font-medium ${dept.roles.length > 0 ? 'text-black [.theme-dark_&]:text-white' : 'text-muted'}`}>
+                                            {dept.roles.length > 0 ? `${dept.roles.length} roles` : 'No openings'}
+                                        </span>
                                     </div>
 
                                     <div className="grid gap-3">
-                                        {dept.roles.map((role, rIndex) => (
-                                            <div
-                                                key={role.title}
-                                                className="group relative rounded-2xl border border-soft bg-panel p-6 transition-all duration-300 hover:border-violet-500/30 hover:shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4"
-                                            >
-                                                <div>
-                                                    <h4 className="text-lg font-semibold text-strong group-hover:text-violet-500 transition-colors duration-200">
-                                                        {role.title}
-                                                    </h4>
-                                                    <div className="flex items-center gap-3 mt-1 text-sm text-muted">
-                                                        <span className="flex items-center gap-1.5">
-                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                            </svg>
-                                                            {role.location}
-                                                        </span>
-                                                        <span className="h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-700" />
-                                                        <span className="flex items-center gap-1.5">
-                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                            </svg>
-                                                            {role.type}
-                                                        </span>
+                                        {dept.roles.length > 0 ? (
+                                            dept.roles.map((role, rIndex) => (
+                                                <Link
+                                                    key={role.title}
+                                                    href={role.href || '#'}
+                                                    className="group block rounded-lg border border-soft bg-panel hover:border-violet-500/30 hover:shadow-sm transition-all duration-200 mb-3"
+                                                >
+                                                    <div className="px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                                        <h4 className="text-base font-semibold text-strong group-hover:text-violet-500 transition-colors">
+                                                            {role.title}
+                                                        </h4>
+                                                        <div className="flex items-center gap-4 text-xs font-medium text-muted uppercase tracking-wider shrink-0">
+                                                            <span>{role.location}</span>
+                                                            <span className="hidden sm:inline text-soft">|</span>
+                                                            <span>{role.type}</span>
+                                                        </div>
                                                     </div>
-                                                </div>
-
-                                                <div className="flex-shrink-0">
-                                                    <button className="w-full sm:w-auto rounded-xl border border-soft hover:border-violet-500 px-6 py-2.5 text-sm font-semibold transition-all duration-200 hover:bg-violet-500 hover:text-white group-hover:border-transparent">
-                                                        Apply Now
-                                                    </button>
-                                                </div>
+                                                </Link>
+                                            ))
+                                        ) : (
+                                            <div className="rounded-2xl border border-soft border-dashed bg-panel/30 p-8 text-center">
+                                                <p className="text-muted text-sm">
+                                                    No open roles at the moment.
+                                                </p>
                                             </div>
-                                        ))}
+                                        )}
                                     </div>
                                 </div>
                             ))}
@@ -175,7 +162,7 @@ export default function CareersPage() {
                                     className="reveal-zoom rounded-3xl border border-soft bg-panel p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                                     style={{ animationDelay: `${index * 100}ms` }}
                                 >
-                                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-violet-500/10 text-violet-600 mb-6">
+                                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-black text-white [.theme-dark_&]:bg-white [.theme-dark_&]:text-black mb-6 shadow-sm">
                                         {benefit.icon}
                                     </div>
                                     <h3 className="text-lg font-bold text-strong mb-3">{benefit.title}</h3>
@@ -202,7 +189,7 @@ export default function CareersPage() {
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <Link
                                     href="/contact"
-                                    className="rounded-full bg-black text-white dark:bg-white dark:text-black px-8 py-4 font-semibold transition-all duration-200 hover:scale-105 shadow-lg min-w-[200px]"
+                                    className="rounded-full bg-black text-white hover:bg-neutral-800 [.theme-dark_&]:bg-white [.theme-dark_&]:text-black [.theme-dark_&]:hover:bg-neutral-200 px-8 py-4 font-semibold transition-all duration-200 hover:scale-105 shadow-lg min-w-[200px]"
                                 >
                                     Contact Us
                                 </Link>

@@ -122,7 +122,7 @@ export default function ContactPage() {
                                                 required
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-black [.theme-dark_&]:focus:border-white focus:outline-none focus:ring-2 focus:ring-black/20 [.theme-dark_&]:focus:ring-white/20 transition-all duration-200"
                                                 placeholder="John Doe"
                                             />
                                         </div>
@@ -139,7 +139,7 @@ export default function ContactPage() {
                                                 required
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-black [.theme-dark_&]:focus:border-white focus:outline-none focus:ring-2 focus:ring-black/20 [.theme-dark_&]:focus:ring-white/20 transition-all duration-200"
                                                 placeholder="john@example.com"
                                             />
                                         </div>
@@ -156,7 +156,7 @@ export default function ContactPage() {
                                                 required
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-black [.theme-dark_&]:focus:border-white focus:outline-none focus:ring-2 focus:ring-black/20 [.theme-dark_&]:focus:ring-white/20 transition-all duration-200"
                                                 placeholder="+1 (555) 000-0000"
                                             />
                                         </div>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                                                 name="company"
                                                 value={formData.company}
                                                 onChange={handleChange}
-                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                                                className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-black [.theme-dark_&]:focus:border-white focus:outline-none focus:ring-2 focus:ring-black/20 [.theme-dark_&]:focus:ring-white/20 transition-all duration-200"
                                                 placeholder="Your Company"
                                             />
                                         </div>
@@ -195,8 +195,8 @@ export default function ContactPage() {
                                                         className="sr-only"
                                                     />
                                                     <span className={`w-full text-center px-2 py-1.5 rounded-lg border transition-all duration-200 text-sm ${formData.timeline === option
-                                                        ? 'border-black bg-black text-white'
-                                                        : 'border-soft bg-strong text-muted hover:border-black/50'
+                                                        ? 'border-black bg-black text-white [.theme-dark_&]:border-white [.theme-dark_&]:bg-white [.theme-dark_&]:text-black'
+                                                        : 'border-soft bg-strong text-muted hover:border-black/50 [.theme-dark_&]:hover:border-white/50'
                                                         }`}>
                                                         {option}
                                                     </span>
@@ -217,7 +217,7 @@ export default function ContactPage() {
                                             rows={2}
                                             value={formData.details}
                                             onChange={handleChange}
-                                            className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-black focus:outline-none focus:ring-2 focus:ring-black/20 transition-all duration-200 resize-none"
+                                            className="w-full rounded-xl border border-soft bg-strong px-3 py-2 text-strong placeholder:text-muted focus:border-black [.theme-dark_&]:focus:border-white focus:outline-none focus:ring-2 focus:ring-black/20 [.theme-dark_&]:focus:ring-white/20 transition-all duration-200 resize-none"
                                             placeholder="Tell us about your project..."
                                         />
                                     </div>
@@ -231,11 +231,11 @@ export default function ContactPage() {
                                                 checked={formData.agreeToPrivacy}
                                                 onChange={handleChange}
                                                 required
-                                                className="mt-1 w-4 h-4 text-black border-soft rounded focus:ring-2 focus:ring-black/20 accent-black"
+                                                className="mt-1 w-4 h-4 text-black [.theme-dark_&]:text-white border-soft rounded focus:ring-2 focus:ring-black/20 [.theme-dark_&]:focus:ring-white/20 accent-black [.theme-dark_&]:accent-white"
                                             />
                                             <span className="ml-3 text-sm text-muted group-hover:text-strong transition-colors duration-200">
                                                 I agree to the{' '}
-                                                <Link href="/privacy-policy" className="text-black hover:underline font-medium">
+                                                <Link href="/privacy-policy" className="text-black [.theme-dark_&]:text-white hover:underline font-medium">
                                                     Privacy Policy
                                                 </Link>
                                             </span>
@@ -246,7 +246,7 @@ export default function ContactPage() {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting || !formData.agreeToPrivacy}
-                                        className="w-full rounded-xl bg-black text-white px-6 py-3 font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                                        className="w-full rounded-xl bg-black text-white [.theme-dark_&]:bg-white [.theme-dark_&]:text-black px-6 py-3 font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                                     >
                                         {isSubmitting ? 'Sending...' : 'Submit'}
                                     </button>
