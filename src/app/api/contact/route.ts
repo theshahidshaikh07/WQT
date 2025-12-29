@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER || '', // Will be set in .env
+                user: process.env.EMAIL_USER || 'contact.wqt@gmail.com', // Fallback email
                 pass: process.env.EMAIL_PASSWORD || '', // Will be set in .env
             },
         });
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
                             padding: 20px;
                         }
                         .header {
-                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                            background: #000000;
                             color: white;
                             padding: 30px;
                             border-radius: 10px 10px 0 0;
@@ -71,11 +71,11 @@ export async function POST(request: NextRequest) {
                             padding: 15px;
                             background: white;
                             border-radius: 8px;
-                            border-left: 4px solid #667eea;
+                            border-left: 4px solid #000000;
                         }
                         .label {
                             font-weight: bold;
-                            color: #667eea;
+                            color: #000000;
                             margin-bottom: 5px;
                         }
                         .value {
