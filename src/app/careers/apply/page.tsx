@@ -64,6 +64,7 @@ function ApplyForm() {
 
             if (response.ok) {
                 setSubmitStatus('success');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 setFormData({
                     name: '',
                     email: '',

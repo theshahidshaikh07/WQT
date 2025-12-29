@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
@@ -17,6 +17,15 @@ export default function ContactPage() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+    useEffect(() => {
+        if (submitStatus === 'success' || submitStatus === 'error') {
+            const timer = setTimeout(() => {
+                setSubmitStatus('idle');
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [submitStatus]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
@@ -251,28 +260,49 @@ export default function ContactPage() {
                                         {isSubmitting ? 'Sending...' : 'Submit'}
                                     </button>
 
-                                    {/* Status Messages */}
-                                    {submitStatus === 'success' && (
-                                        <div className="rounded-xl bg-green-500/10 border border-green-500/20 p-4 text-center">
-                                            <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-                                                ✓ Message sent successfully! We'll get back to you soon.
-                                            </p>
-                                        </div>
-                                    )}
-                                    {submitStatus === 'error' && (
-                                        <div className="rounded-xl bg-red-500/10 border border-red-500/20 p-4 text-center">
-                                            <p className="text-sm text-red-600 dark:text-red-400 font-medium">
-                                                ✗ Failed to send message. Please try again.
-                                            </p>
-                                        </div>
-                                    )}
                                 </form>
                             </div>
                         </div>
-
-
                     </div>
                 </section>
+
+                {/* Toast Notification */}
+                {(submitStatus === 'success' || submitStatus === 'error') && (
+                    <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 animate-[slideIntop_0.3s_ease-out] shadow-2xl drop-shadow-2xl w-auto max-w-sm sm:max-w-md">
+                        <div className={`flex items-start gap-3 p-4 rounded-xl border ${submitStatus === 'success'
+                            ? 'bg-black text-white border-zinc-800 [.theme-dark_&]:bg-white [.theme-dark_&]:text-black'
+                            : 'bg-red-600 text-white border-red-700'
+                            }`}>
+                            {submitStatus === 'success' ? (
+                                <svg className="w-6 h-6 shrink-0 text-green-400 [.theme-dark_&]:text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            ) : (
+                                <svg className="w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            )}
+                            <div>
+                                <h4 className="font-bold text-sm">
+                                    {submitStatus === 'success' ? 'Message Sent!' : 'Error'}
+                                </h4>
+                                <p className="text-xs opacity-90 mt-0.5">
+                                    {submitStatus === 'success'
+                                        ? "We'll get back to you shortly."
+                                        : "Something went wrong. Please try again."}
+                                </p>
+                            </div>
+                            <button
+                                onClick={() => setSubmitStatus('idle')}
+                                className="ml-2 hover:opacity-70 transition-opacity"
+                            >
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                )}
 
                 {/* Map Section */}
                 <section className="relative py-20 bg-hero border-b border-soft">
