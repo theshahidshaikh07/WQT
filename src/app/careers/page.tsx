@@ -57,7 +57,14 @@ const openPositions = [
     },
     {
         department: "Product & Design",
-        roles: []
+        roles: [
+            {
+                title: "Product Owner",
+                location: "Pune, India",
+                type: "Remote",
+                href: "/careers/product-owner"
+            }
+        ]
     }
 ];
 
