@@ -4,7 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
-import { VisionSection } from "@/components/sections/VisionSection";
+import { QuoteSection } from "@/components/sections/QuoteSection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       <ServicesSection />
       <HowItWorksSection />
       <WhyChooseUsSection />
-      <VisionSection />
+      <QuoteSection />
       <FinalCTASection />
       <SiteFooter />
     </div>

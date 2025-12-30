@@ -10,14 +10,25 @@ export async function POST(request: NextRequest) {
         const phone = formData.get('phone') as string;
         const linkedin = formData.get('linkedin') as string;
         const portfolio = formData.get('portfolio') as string;
+        const github = formData.get('github') as string;
+        const otherLink = formData.get('otherLink') as string;
         const coverLetter = formData.get('coverLetter') as string;
         const jobTitle = formData.get('jobTitle') as string;
-        const file = formData.get('resume') as File;
+        const file = formData.get('resume') as File | null;
+        const resumeUrl = formData.get('resumeUrl') as string | null;
 
         // Validate required fields
-        if (!name || !email || !phone || !linkedin || !file) {
+        if (!name || !email || !phone || !linkedin) {
             return NextResponse.json(
                 { error: 'Missing required fields' },
+                { status: 400 }
+            );
+        }
+
+        // Validate that either file or URL is provided
+        if (!file && !resumeUrl) {
+            return NextResponse.json(
+                { error: 'Please provide either a resume file or a resume link' },
                 { status: 400 }
             );
         }
@@ -31,11 +42,8 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        // Convert file to buffer for attachment
-        const buffer = Buffer.from(await file.arrayBuffer());
-
-        // Email content
-        const mailOptions = {
+        // Prepare email options
+        const mailOptions: any = {
             from: process.env.EMAIL_USER || 'contact.wqt@gmail.com',
             to: process.env.EMAIL_USER || 'contact.wqt@gmail.com',
             replyTo: email,
@@ -51,6 +59,7 @@ export async function POST(request: NextRequest) {
                         .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
                         .field { margin-bottom: 20px; padding: 15px; background: white; border-radius: 8px; border-left: 4px solid #000; }
                         .label { font-weight: bold; color: #000; margin-bottom: 5px; }
+                        .resume-link { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #000; color: white; text-decoration: none; border-radius: 6px; }
                     </style>
                 </head>
                 <body>
@@ -64,23 +73,33 @@ export async function POST(request: NextRequest) {
                             <div class="field"><div class="label">Email:</div><div><a href="mailto:${email}">${email}</a></div></div>
                             <div class="field"><div class="label">Phone:</div><div><a href="tel:${phone}">${phone}</a></div></div>
                             <div class="field"><div class="label">LinkedIn:</div><div><a href="${linkedin}">${linkedin}</a></div></div>
-                            ${portfolio ? `<div class="field"><div class="label">Portfolio/GitHub:</div><div><a href="${portfolio}">${portfolio}</a></div></div>` : ''}
+                            ${portfolio ? `<div class="field"><div class="label">Portfolio:</div><div><a href="${portfolio}">${portfolio}</a></div></div>` : ''}
+                            ${github ? `<div class="field"><div class="label">GitHub:</div><div><a href="${github}">${github}</a></div></div>` : ''}
+                            ${otherLink ? `<div class="field"><div class="label">Other Link:</div><div><a href="${otherLink}">${otherLink}</a></div></div>` : ''}
                             ${coverLetter ? `<div class="field"><div class="label">Cover Letter:</div><div>${coverLetter.replace(/\n/g, '<br>')}</div></div>` : ''}
+                            ${resumeUrl ? `<div class="field"><div class="label">Resume Link:</div><div><a href="${resumeUrl}" class="resume-link" target="_blank">View Resume</a></div></div>` : ''}
                             <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;" />
-                            <p style="text-align: center; color: #666; font-size: 12px;">Resume is attached to this email.</p>
+                            <p style="text-align: center; color: #666; font-size: 12px;">
+                                ${file ? 'Resume is attached to this email.' : resumeUrl ? 'Resume link is provided above.' : ''}
+                            </p>
                         </div>
                     </div>
                 </body>
                 </html>
             `,
-            attachments: [
+        };
+
+        // Add file attachment if provided
+        if (file) {
+            const buffer = Buffer.from(await file.arrayBuffer());
+            mailOptions.attachments = [
                 {
                     filename: file.name,
                     content: buffer,
                     contentType: file.type,
                 },
-            ],
-        };
+            ];
+        }
 
         // Send email
         await transporter.sendMail(mailOptions);

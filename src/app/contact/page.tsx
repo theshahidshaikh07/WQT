@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
@@ -17,6 +17,16 @@ export default function ContactPage() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+    // Auto-hide notification after 5 seconds
+    useEffect(() => {
+        if (submitStatus !== 'idle') {
+            const timer = setTimeout(() => {
+                setSubmitStatus('idle');
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [submitStatus]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
@@ -252,20 +262,7 @@ export default function ContactPage() {
                                     </button>
 
                                     {/* Status Messages */}
-                                    {submitStatus === 'success' && (
-                                        <div className="rounded-xl bg-green-500/10 border border-green-500/20 p-4 text-center">
-                                            <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-                                                ✓ Message sent successfully! We'll get back to you soon.
-                                            </p>
-                                        </div>
-                                    )}
-                                    {submitStatus === 'error' && (
-                                        <div className="rounded-xl bg-red-500/10 border border-red-500/20 p-4 text-center">
-                                            <p className="text-sm text-red-600 dark:text-red-400 font-medium">
-                                                ✗ Failed to send message. Please try again.
-                                            </p>
-                                        </div>
-                                    )}
+
                                 </form>
                             </div>
                         </div>
@@ -335,6 +332,63 @@ export default function ContactPage() {
                     </div>
                 </section>
             </main>
+
+            {/* Floating Notification Popup */}
+            {submitStatus !== 'idle' && (
+                <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4 animate-fade-in-up">
+                    <div className={`rounded-2xl p-4 shadow-xl border flex items-center gap-4 ${submitStatus === 'success'
+                        ? 'bg-emerald-50 border-emerald-400 dark:bg-emerald-950 dark:border-emerald-600'
+                        : 'bg-red-50 border-red-400 dark:bg-red-950 dark:border-red-600'
+                        }`}>
+                        {/* Huge Solid Icon */}
+                        <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${submitStatus === 'success' ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'
+                            }`}>
+                            {submitStatus === 'success' ? (
+                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            ) : (
+                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1">
+                            <h3 className="font-bold text-base text-gray-900 dark:text-white mb-0.5">
+                                {submitStatus === 'success' ? 'Message Sent!' : 'Something went wrong!'}
+                            </h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-300 font-medium leading-snug">
+                                {submitStatus === 'success' ? (
+                                    <>
+                                        Thanks for reaching out! <br />
+                                        We'll get back to you shortly.
+                                    </>
+                                ) : (
+                                    <>
+                                        We couldn't submit your form. <br />
+                                        Please try again later.
+                                    </>
+                                )}
+                            </p>
+                        </div>
+
+                        {/* Close Button - Conditional Styling to match references */}
+                        <button
+                            onClick={() => setSubmitStatus('idle')}
+                            className={`flex-shrink-0 p-2 rounded-lg transition-all ${submitStatus === 'success'
+                                    ? 'bg-white/80 hover:bg-white dark:bg-white/10 dark:hover:bg-white/20 text-gray-500 dark:text-gray-400 shadow-sm'
+                                    : 'bg-transparent hover:bg-red-100 dark:hover:bg-red-900/30 text-gray-500 dark:text-gray-400'
+                                }`}
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            )}
             <SiteFooter />
         </div >
     );

@@ -1,4 +1,4 @@
-export function VisionSection() {
+export function QuoteSection() {
   return (
     <section
       id="about"
