@@ -128,12 +128,12 @@ export function SiteHeader() {
         {/* Desktop Actions */}
         <div className="hidden items-center gap-4 lg:flex">
           <ThemeToggle />
-          <Link
+          {/* <Link
             href="#signup"
             className="rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-200 hover:scale-105 hover:bg-gray-800 hover:shadow-lg theme-dark:text-white theme-dark:hover:bg-white/10"
           >
             Signup
-          </Link>
+          </Link> */}
           <Link
             href="/contact"
             className="rounded-full bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-gray-100 theme-dark:bg-white theme-dark:text-black theme-dark:hover:bg-gray-100"
@@ -254,13 +254,13 @@ export function SiteHeader() {
               Careers
             </Link>
             <div className="flex flex-col gap-3 pt-4">
-              <Link
+              {/* <Link
                 href="#signup"
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-full px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-200 hover:bg-gray-800 theme-dark:text-black theme-dark:hover:bg-gray-200"
               >
                 Signup
-              </Link>
+              </Link> */}
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
