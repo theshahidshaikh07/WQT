@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+// Initialize Resend with the API key
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
     try {
@@ -33,19 +36,10 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Create transporter (same as contact form)
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER || 'contact.wqt@gmail.com',
-                pass: process.env.EMAIL_PASSWORD || '',
-            },
-        });
-
         // Prepare email options
         const mailOptions: any = {
-            from: process.env.EMAIL_USER || 'contact.wqt@gmail.com',
-            to: process.env.EMAIL_USER || 'contact.wqt@gmail.com',
+            from: 'WQT Careers <onboarding@resend.dev>', // Use default until domain is verified
+            to: ['wqt.contact@gmail.com'],
             replyTo: email,
             subject: `New Job Application: ${name} - ${jobTitle || 'General Application'}`,
             html: `
@@ -96,13 +90,20 @@ export async function POST(request: NextRequest) {
                 {
                     filename: file.name,
                     content: buffer,
-                    contentType: file.type,
                 },
             ];
         }
 
-        // Send email
-        await transporter.sendMail(mailOptions);
+        // Send email via Resend
+        const { data, error } = await resend.emails.send(mailOptions);
+
+        if (error) {
+            console.error('Error processing application:', error);
+            return NextResponse.json(
+                { error: 'Failed to submit application' },
+                { status: 500 }
+            );
+        }
 
         return NextResponse.json(
             { message: 'Application submitted successfully' },

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface ContactFormData {
     name: string;
@@ -24,19 +26,10 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Create transporter
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER || 'contact.wqt@gmail.com', // Fallback email
-                pass: process.env.EMAIL_PASSWORD || '', // Will be set in .env
-            },
-        });
-
         // Email content
-        const mailOptions = {
-            from: process.env.EMAIL_USER || 'contact.wqt@gmail.com',
-            to: process.env.EMAIL_USER || 'contact.wqt@gmail.com',
+        const { data, error } = await resend.emails.send({
+            from: 'WQT Contact Form <onboarding@resend.dev>',
+            to: ['wqt.contact@gmail.com'],
             replyTo: email,
             subject: `New Contact Form Submission from ${name}`,
             html: `
@@ -139,10 +132,15 @@ export async function POST(request: NextRequest) {
                 </body>
                 </html>
             `,
-        };
+        });
 
-        // Send email
-        await transporter.sendMail(mailOptions);
+        if (error) {
+            console.error('Error sending email:', error);
+            return NextResponse.json(
+                { error: 'Failed to send email' },
+                { status: 500 }
+            );
+        }
 
         return NextResponse.json(
             { message: 'Email sent successfully' },
